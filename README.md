@@ -398,8 +398,8 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file.
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/vpn-master-panel/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/vpn-master-panel/discussions)
+- **Issues**: [GitHub Issues](https://github.com/EchoDev7/vpn-master-panel/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/EchoDev7/vpn-master-panel/discussions)
 
 ---
 
