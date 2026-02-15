@@ -56,6 +56,20 @@ A powerful, open-source VPN management system with built-in Iran bypass capabili
 
 ## 🚀 Quick Start
 
+## 🚀 نصب سریع
+
+### سرورهای 2GB+ RAM (Standard):
+```bash
+curl -sSL https://raw.githubusercontent.com/EchoDev7/vpn-master-panel/main/quick-install.sh | sudo bash
+```
+
+### سرورهای 1GB RAM (Lightweight):
+```bash
+curl -sSL https://raw.githubusercontent.com/EchoDev7/vpn-master-panel/main/install-light.sh | sudo bash
+```
+
+📊 [مقایسه نسخه‌ها](COMPARISON.md)
+---------------------
 ### Prerequisites
 - **Docker** & **Docker Compose** (Recommended)
 - OR **Ubuntu 22.04** with Python 3.11+
