@@ -18,6 +18,14 @@ class Settings(BaseSettings):
     API_V1_PREFIX: str = "/api/v1"
     HOST: str = "0.0.0.0"
     PORT: int = 8000
+    API_PORT: int = 8000  # Alias for PORT
+    WEB_PORT: int = 3000  # Frontend port
+    
+    # VPN Ports
+    OPENVPN_PORT: int = 1194
+    WIREGUARD_PORT: int = 51820
+    L2TP_PSK: str = "vpnmaster"
+    CISCO_PORT: int = 4443
     
     # Security
     SECRET_KEY: str = "CHANGE_THIS_IN_PRODUCTION_USE_OPENSSL_RAND_HEX_32"
@@ -84,6 +92,7 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
         case_sensitive = True
+        extra = "allow"  # Allow extra fields from .env file
 
 
 @lru_cache()
