@@ -154,9 +154,20 @@ const Users = () => {
                                 <input
                                     type="text"
                                     required
+                                    minLength={6}
+                                    placeholder="Min 6 chars"
                                     className="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:outline-none focus:border-blue-500"
                                     value={formData.password}
                                     onChange={e => setFormData({ ...formData, password: e.target.value })}
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-gray-400 text-sm mb-1">Email (Optional)</label>
+                                <input
+                                    type="email"
+                                    className="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:outline-none focus:border-blue-500"
+                                    value={formData.email}
+                                    onChange={e => setFormData({ ...formData, email: e.target.value })}
                                 />
                             </div>
                             <div>
