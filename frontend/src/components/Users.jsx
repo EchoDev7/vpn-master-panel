@@ -39,7 +39,24 @@ const Users = () => {
             loadUsers();
             alert('User created successfully!');
         } catch (error) {
-            alert('Failed to create user: ' + (error.response?.data?.detail || error.message));
+            console.error('Create user error:', error);
+            let errorMessage = 'Failed to create user';
+
+            if (error.response?.data?.detail) {
+                if (Array.isArray(error.response.data.detail)) {
+                    // Handle FastAPI validation errors (array of objects)
+                    errorMessage += ':\n' + error.response.data.detail.map(err =>
+                        `- ${err.loc.join('.')} : ${err.msg}`
+                    ).join('\n');
+                } else {
+                    // Handle standard HTTP errors (string)
+                    errorMessage += ': ' + error.response.data.detail;
+                }
+            } else {
+                errorMessage += ': ' + error.message;
+            }
+
+            alert(errorMessage);
         }
     };
 
