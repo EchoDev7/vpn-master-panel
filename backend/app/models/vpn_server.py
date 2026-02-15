@@ -1,7 +1,7 @@
 """
 VPN Server and Node Models
 """
-from sqlalchemy import Column, Integer, String, Boolean, DateTime, Float, Text, JSON
+from sqlalchemy import Column, Integer, String, Boolean, DateTime, Float, Text, JSON, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 import enum
@@ -106,7 +106,7 @@ class Tunnel(Base):
     protocol = Column(String(20), default="tcp")  # tcp/udp
     
     # Server References
-    server_id = Column(Integer, nullable=False)  # Foreign server ID
+    server_id = Column(Integer, ForeignKey("vpn_servers.id"), nullable=False)  # Foreign server ID
     iran_server_ip = Column(String(50), nullable=False)
     iran_server_port = Column(Integer, nullable=False)
     
