@@ -78,29 +78,43 @@ class UserUpdate(BaseModel):
 class UserResponse(BaseModel):
     id: int
     username: str
-    email: Optional[str]
-    full_name: Optional[str]
+    email: Optional[str] = None
+    full_name: Optional[str] = None
     role: UserRole
     status: UserStatus
     
-    data_limit_gb: float
-    connection_limit: int
-    expiry_date: Optional[datetime]
+    data_limit_gb: Optional[float] = 0
+    connection_limit: Optional[int] = 1
+    expiry_date: Optional[datetime] = None
     
-    total_upload_bytes: int
-    total_download_bytes: int
-    data_usage_gb: float
+    total_upload_bytes: Optional[int] = 0
+    total_download_bytes: Optional[int] = 0
+    data_usage_gb: Optional[float] = 0
     
-    openvpn_enabled: bool
-    wireguard_enabled: bool
-    l2tp_enabled: bool
-    cisco_enabled: bool
+    openvpn_enabled: Optional[bool] = False
+    wireguard_enabled: Optional[bool] = False
+    l2tp_enabled: Optional[bool] = False
+    cisco_enabled: Optional[bool] = False
     
     created_at: datetime
-    last_connection: Optional[datetime]
+    last_connection: Optional[datetime] = None
     
     class Config:
         from_attributes = True
+        
+    @field_validator('data_limit_gb', 'total_upload_bytes', 'total_download_bytes', 'data_usage_gb', mode='before')
+    def set_default_zero(cls, v):
+        return v or 0
+        
+    @field_validator('connection_limit', mode='before')
+    def set_default_one(cls, v):
+        return v or 1
+        
+    @field_validator('openvpn_enabled', 'wireguard_enabled', 'l2tp_enabled', 'cisco_enabled', mode='before')
+    def set_default_false(cls, v):
+        if v is None:
+            return False
+        return v
 
 
 class UserListResponse(BaseModel):

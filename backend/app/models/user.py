@@ -98,14 +98,17 @@ class User(Base):
     @property
     def data_usage_gb(self) -> float:
         """Total data usage in GB"""
-        return (self.total_upload_bytes + self.total_download_bytes) / (1024**3)
+        upload = self.total_upload_bytes or 0
+        download = self.total_download_bytes or 0
+        return (upload + download) / (1024**3)
     
     @property
     def has_data_remaining(self) -> bool:
         """Check if user has data quota remaining"""
-        if self.data_limit_gb == 0:  # Unlimited
+        limit = self.data_limit_gb or 0
+        if limit == 0:  # Unlimited
             return True
-        return self.data_usage_gb < self.data_limit_gb
+        return self.data_usage_gb < limit
 
 
 class TrafficLog(Base):
