@@ -1,5 +1,7 @@
+```
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import Dashboard from './components/Dashboard'
 import Users from './components/Users'
 // ... inside Routes
 <Route path="/users" element={<Users />} />
@@ -40,7 +42,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
                         <Route path="/servers" element={<ComingSoon title="Servers Management" />} />
-                        <Route path="/users" element={<ComingSoon title="User Management" />} />
+                        <Route path="/users" element={<Users />} />
                     </Routes>
                 </main>
 
