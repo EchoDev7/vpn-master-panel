@@ -4,10 +4,11 @@
 
 A powerful, open-source VPN management system with built-in Iran bypass capabilities through PersianShield™ tunnel technology.
 
+![GitHub stars](https://img.shields.io/github/stars/EchoDev7/vpn-master-panel?style=social)
+![GitHub forks](https://img.shields.io/github/forks/EchoDev7/vpn-master-panel?style=social)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
-![React](https://img.shields.io/badge/react-18+-61DAFB.svg)
-![Docker](https://img.shields.io/badge/docker-ready-2496ED.svg)
+![Docker](https://img.shields.io/badge/docker-ready-blue.svg)
 
 ---
 
