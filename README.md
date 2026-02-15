@@ -63,7 +63,7 @@ A powerful, open-source VPN management system with built-in Iran bypass capabili
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/vpn-master-panel.git
+git clone https://github.com/EchoDev7/vpn-master-panel.git
 cd vpn-master-panel
 
 # Copy environment file
