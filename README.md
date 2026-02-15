@@ -59,7 +59,18 @@ A powerful, open-source VPN management system with built-in Iran bypass capabili
 ### Prerequisites
 - **Docker** & **Docker Compose** (Recommended)
 - OR **Ubuntu 22.04** with Python 3.11+
+## 🚀 نصب سریع (توصیه می‌شود)
 
+### یک دستور، نصب کامل:
+```bash
+curl -sSL https://raw.githubusercontent.com/EchoDev7/vpn-master-panel/main/quick-install.sh | sudo bash
+```
+
+**همین!** اسکریپت خودکار همه چیز را نصب و تنظیم می‌کند.
+
+⏱️ زمان نصب: 5-10 دقیقه
+
+📖 [راهنمای کامل نصب خودکار](QUICK_INSTALL.md)
 ### Option 1: Docker Deployment (Recommended)
 
 ```bash
