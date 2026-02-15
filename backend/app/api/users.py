@@ -160,11 +160,17 @@ async def create_user(
     
     # Generate WireGuard keys if enabled
     if user_data.wireguard_enabled:
-        from ..services.wireguard import generate_wireguard_keys
-        keys = generate_wireguard_keys()
-        new_user.wireguard_private_key = keys['private_key']
-        new_user.wireguard_public_key = keys['public_key']
-        new_user.wireguard_ip = keys['ip']
+        try:
+            from ..services.wireguard import generate_wireguard_keys
+            keys = generate_wireguard_keys()
+            new_user.wireguard_private_key = keys['private_key']
+            new_user.wireguard_public_key = keys['public_key']
+            new_user.wireguard_ip = keys['ip']
+        except Exception as e:
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.warning(f"Failed to generate WireGuard keys: {e}. Disabling WireGuard for this user.")
+            new_user.wireguard_enabled = False
     
     db.add(new_user)
     db.commit()
