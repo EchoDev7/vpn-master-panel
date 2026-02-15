@@ -22,7 +22,7 @@ const Users = () => {
         try {
             setLoading(true);
             const response = await apiService.getUsers();
-            setUsers(response.data);
+            setUsers(response.data.users || []);
         } catch (error) {
             console.error('Failed to load users:', error);
         } finally {
